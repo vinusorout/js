@@ -94,4 +94,45 @@ var {lastName} = person;
  console.log(`value of a is ${a}`);
 ```
 
+## Arrays methods (Filter, Some, Map, reduce, every)
+### Filter
+```js
+  const array1 = [
+  { name: 'a', height: 10 },
+  { name: 'b', height: 12 },
+  { name: 'c', height: 08 },
+  ];
+  const array2 = array1.filter( (item) => {
+    return item.height >= 10;
+  });
+```
 
+### Map, iterate through each item of array, we can update the array and the result will be a NEW ARRAY
+```js
+  const array1 = [
+  { name: 'a', height: 10, width: 10 },
+  { name: 'b', height: 12, width: 11  },
+  { name: 'c', height: 08, width: 12 },
+  ];
+  // return only name of each object
+  const names = array1.map( (item) => {
+    return item.name;
+  });
+  const namesandheights = array1.map( (item) => {
+    return {name: item.name, height: item.heigh };
+  });
+  console.log(namesandheights) // [{name:'a', height: 12}, {name:'b', height: 10}, {name:'c', height: 08}]
+```
+
+### Some, altest one item meet with the condition
+```js
+  const array1 = [
+  { name: 'a', height: 10 },
+  { name: 'b', height: 12 },
+  { name: 'c', height: 08 },
+  ];
+  const isTrue = array1.some( (item) => {
+    return item.height >= 10;
+  });
+  console.log(isTrue); // True
+```
