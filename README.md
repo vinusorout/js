@@ -57,3 +57,41 @@ console.log(finalData);
 "1" === 1 // doesnt convert and result is false
 
 ```
+
+# Some ES6 or ES2015 highlights
+## Destructuring properties
+```js
+var person = {
+  name: 'vinay',
+  lastname: 'sorout'
+}
+var {lastName} = person;
+```
+
+## Spread Operator(three dots ...)
+### usefull to make copy of arrays, objects
+```js
+  var arr1 = [1,2,3]
+  var arr2 = [...arr1, ...arr2]
+  
+  // Copy objects
+  const food = {a: 'a', b: 'b'};
+  const newFood = {...food}
+  
+  // other ways to copy object
+  // "Object.assign"
+  Object.assign({}, food)
+
+  // other ways to copy object
+  // "JSON"
+  JSON.parse(JSON.stringify(food))
+  
+```
+
+## backtick allows using variable in string
+```js
+ const a = 'a';
+ console.log(`value of a is ${a}`);
+```
+
+
