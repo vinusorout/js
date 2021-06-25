@@ -224,8 +224,9 @@ var {lastName} = person;
 
 ## JAVASCRIPT IMP QUESTIONS
 
-JavaScript is a dynamically typed language. In a dynamically typed language, the type of a variable is checked during run-time
+### JavaScript is a dynamically typed language. In a dynamically typed language, the type of a variable is checked during run-time
 
+### Implicit Type Coercion
 ```js
 // Implicit Type Coercion in javascript
 var x = 3;
@@ -235,3 +236,43 @@ console.log(x + y); // 33 String coercion takes place while using the ‘ + ‘ 
 console.log(x - y); // 0 Type coercion also takes place when using the ‘ - ‘ operator, but the difference while using ‘ - ‘ operator is that, a string is converted to a number and then subtraction takes place
 ```
 
+### Javascript Closures
+Closures is an ability of a function to remember the variables and functions that are declared in its outer scope.
+
+```js
+function randomFunc(){
+  var obj1 = {name:"Vivian", age:45};
+
+  return function(){
+    console.log(obj1.name + " is "+ "awesome"); // Has access to obj1 even when the randomFunc function is executed
+
+  }
+}
+
+var initialiseClosure = randomFunc(); // Returns a function
+
+initialiseClosure(); 
+```
+
+Let’s understand the code above,
+The function randomFunc() gets executed and returns a function when we assign it to a variable:
+
+```js
+var initialiseClosure = randomFunc();
+```
+
+The returned function is then executed when we invoke initialiseClosure:
+
+```js
+initialiseClosure(); 
+```
+
+The line of code above outputs “Vivian is awesome” and this is possible because of closure.
+When the function randomFunc() runs, it sees that the returning function is using the variable obj1 inside it:
+
+```js
+console.log(obj1.name + " is "+ "awesome");
+```
+Therefore randomFunc(), instead of destroying the value of obj1 after execution, saves the value in the memory for further reference. This is the reason why the returning function is able to use the variable declared in the outer scope even after the function is already executed.
+
+**This ability of a function to store a variable for further reference even after it is executed, is called Closure.**
