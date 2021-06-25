@@ -136,3 +136,55 @@ var {lastName} = person;
   });
   console.log(isTrue); // True
 ```
+
+### Sort
+```js
+  const array1 = [
+  { name: 'a', height: 10 },
+  { name: 'b', height: 12 },
+  { name: 'c', height: 08 },
+  ];
+  const sortedArray = array1.sort( (item1, item2) => {
+    // if return is negative then item 1 is sorterd before item 2
+    // if return is positive then item 2 is sorted before item 1
+    // if return 0 then equal
+    return item1.height - item2.height;
+  });
+  console.log(sortedArray);
+  
+  const sortedArrayWithString = array1.sort( (item1, item2) => {
+    // if return is negative then item 1 is sorterd before item 2
+    // if return is positive then item 2 is sorted before item 1
+    // if return 0 then equal
+    if(item1.name < item2.name) return -1;
+    return 1;
+  });
+  console.log(sortedArrayWithString);
+```
+
+### Reduce, when you iterate through the array items and in the end want some ending result, for ex sum of height
+```js
+  const array1 = [
+  { name: 'a', height: 10, eyeColor: 'red' },
+  { name: 'bb', height: 12, eyeColor: 'red'  },
+  { name: 'c', height: 08, eyeColor: 'blue'  },
+  ];
+  const sumOfheight = array1.reduce( (accumilator, currentItem) => {
+    return accumilator + currentItem.height; // the accumilator value will be 0, passed in next line
+  }, 0); // initial value of accumilator
+  console.log(sumOfheight); // 30
+  // IMPORTANT
+  const noOfCharactersByEyeColors = array1.reduce( (accumilator, currentItem) => {
+    if(accumilator[currentItem.eyeColor]) {
+      accumilator[currentItem.eyeColor]++;
+    } else {
+      accumilator[currentItem.eyeColor] = 1;
+    }
+    return accumilator;
+  }, {}); // initial value as empty object for accumilator
+  console.log(noOfCharactersByEyeColors); // {red: 2, blue: 1}
+  
+  // find total number of charcters in names of array
+  const totalNameCharcters = array1.reduce( (accumilator, currentItem) => accumilator + currentItem.name.length, 0);
+  console.log(totalNameCharcters) // 4
+```
