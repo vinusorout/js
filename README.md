@@ -13,6 +13,7 @@ const loaddata = async () => {
 loaddata().then(data => console.log(data));
 
 // you cant use await at top-level Await (with out function)
+// Immediately Invoked Function (IIFE pronounced as IIFY)
 // for this use IIFE, below fuction is IIFE and will execute
 ( () => {
 })();
@@ -219,3 +220,18 @@ var {lastName} = person;
   });
   console.log(isTrue); // False
 ```
+
+
+## JAVASCRIPT IMP QUESTIONS
+
+JavaScript is a dynamically typed language. In a dynamically typed language, the type of a variable is checked during run-time
+
+```js
+// Implicit Type Coercion in javascript
+var x = 3;
+var y ="3"
+console.log(x + y); // 33 String coercion takes place while using the ‘ + ‘ operator. When a number is added to a string, the number type is always converted to the string type
+
+console.log(x - y); // 0 Type coercion also takes place when using the ‘ - ‘ operator, but the difference while using ‘ - ‘ operator is that, a string is converted to a number and then subtraction takes place
+```
+
