@@ -56,6 +56,23 @@ console.log(finalData);
 // ===
 "1" === 1 // doesnt convert and result is false
 
+// objects
+const obj1 = {
+  name: '1'
+}
+
+const obj2 = {
+  name: '1'
+}
+
+const obj3 = obj2;
+
+console.log(obj1==obj2) // False
+console.log(obj1===obj2) // False
+
+console.log(obj3==obj2) // True
+console.log(obj3===obj2) // True
+
 ```
 
 # Some ES6 or ES2015 highlights
