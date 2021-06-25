@@ -46,3 +46,14 @@ const dataPromises = results.map(result => result.json())
 const finalData = await Promise.all(dataPromises);
 console.log(finalData);
 ```
+
+# Equality
+## The == and === is only applicable for premitive types (int, string etc), not for objects for object every language match refrence data
+```js
+// ==
+"1" == 1 // It convert the both side of data in same type before comparison
+
+// ===
+"1" === 1 // doesnt convert and result is false
+
+```
