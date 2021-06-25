@@ -188,3 +188,17 @@ var {lastName} = person;
   const totalNameCharcters = array1.reduce( (accumilator, currentItem) => accumilator + currentItem.name.length, 0);
   console.log(totalNameCharcters) // 4
 ```
+
+
+### Every, each item should match the condition only then True otherwise Fasle
+```js
+  const array1 = [
+  { name: 'a', height: 10 },
+  { name: 'b', height: 12 },
+  { name: 'c', height: 08 },
+  ];
+  const isTrue = array1.every( (item) => {
+    return item.height >= 10;
+  });
+  console.log(isTrue); // False
+```
