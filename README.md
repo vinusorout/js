@@ -2,9 +2,8 @@ Personal learning
 
 # Async Await
 
-mark the main function async to use await:
-
 ```js
+// mark the main function async to use await:
 const loaddata = async () => {
   const url = "url";
   const res = await fetch(url);
