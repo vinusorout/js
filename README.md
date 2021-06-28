@@ -368,4 +368,116 @@ var person2 = new Person("Courtney", 34, "female");
 console.log(person2);
 ```
 
+### What is the purpose of double exclamation?
+The double exclamation or negation(!!) ensures the resulting type is a boolean. If it was falsey (e.g. 0, null, undefined, etc.), it will be false, otherwise, true. For example, you can test IE version using this expression as below,
+
+```js
+let isIE11 = false;
+isIE11 = !!navigator.userAgent.match(/Trident.*rv[ :]*11\./);
+console.log(isIE11); // returns true or false
+```
+If you do not use this expression then it returns the original value.
+
+```js
+console.log(navigator.userAgent.match(/Trident.*rv[ :]*11\./));  // returns either an Array or null
+```
+Note: The expression !! is not an operator, but it is just twice of ! operator.
+
+### What is the purpose of isFinite function?
+The isFinite() function is used to determine whether a number is a finite, legal number. It returns false if the value is +infinity, -infinity, or NaN (Not-a-Number), otherwise it returns true.
+```js
+isFinite(Infinity);  // false
+isFinite(NaN);       // false
+isFinite(-Infinity); // false
+
+isFinite(100);         // true
+```
+
+### How do you check whether a string contains a substring?
+a.) Using includes: ES6 provided String.prototype.includes method to test a string contains a substring
+
+```js
+var mainString = "hello", subString = "hell";
+mainString.includes(subString)
+```
+
+b.) Using indexOf: In an ES5 or older environments, you can use String.prototype.indexOf which returns the index of a substring. If the index value is not equal to -1 then it means the substring exist in the main string.
+
+```js
+var mainString = "hello", subString = "hell";
+mainString.indexOf(subString) !== -1
+```
+
+### How do you make first letter of the string in an uppercase?
+
+```js
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+```
+
+### Rest parameter:
+Rest parameter is an improved way to handle function parameter which allows us to represent an indefinite number of arguments as an array. The syntax would be as below
+
+```js
+function total(…args) {
+  let sum = 0;
+  for(let i of args) {
+    sum+=i;
+  }
+ return sum;
+}
+console.log(fun(1,2)); //3
+console.log(fun(1,2,3)); //6
+console.log(fun(1,2,3,4)); //13
+console.log(fun(1,2,3,4,5)); //15
+```
+
+The rest parameter should be the last argument, as its job is to collect all the remaining arguments into an array. For example, if you define a function like below it does not make any sense and will throw an error
+
+```js
+function someFunc(a,…b,c) {
+  //You code goes here
+  return;
+}
+```
+### What is a decorator?
+To change behaviour of objects/functions
+
+```js
+function admin(isAdmin) {
+  return function(target) {
+      target.isAdmin = isAdmin;
+  }
+}
+
+@admin(true)
+class User() {
+}
+console.log(User.isAdmin); //true
+
+@admin(false)
+class User() {
+}
+console.log(User.isAdmin); //false
+```
+
+### What is a comma operator?
+
+```js
+var x = 1;
+x = (x++, x);
+
+console.log(x); // 2
+
+///////////
+var x = 1; x = (x++, x++); console.log(x) // 2 because in second x++ assignement is done first before increment
+
+/////////
+var x = 1; x = (x++, x++, x); console.log(x) // 3
+
+/////////
+var x = 1; x = (x++, x++, ++x); console.log(x) // 4
+```
+
 https://github.com/learning-zone/nodejs-interview-questions
