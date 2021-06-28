@@ -479,5 +479,3 @@ var x = 1; x = (x++, x++, x); console.log(x) // 3
 /////////
 var x = 1; x = (x++, x++, ++x); console.log(x) // 4
 ```
-
-https://github.com/learning-zone/nodejs-interview-questions
